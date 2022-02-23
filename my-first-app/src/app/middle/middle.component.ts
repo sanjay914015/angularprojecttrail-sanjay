@@ -11,5 +11,6 @@ export class MiddleComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  imgurl2 = ".././assets/images/coffee1.jpg";
+  imgurl3 = ".././assets/images/coffee2.jpg";
 }

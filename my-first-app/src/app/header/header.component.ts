@@ -11,5 +11,5 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  imgurl1 = ".././assets/images/logo.jpg";
 }

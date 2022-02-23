@@ -15,4 +15,13 @@ export class AppComponent {
   {
     this.countclick++;
   }
+  fname = "";
+  lname ="";
+  cnt = "";
+
+
+  FillTable()
+  {
+
+  }
 }
