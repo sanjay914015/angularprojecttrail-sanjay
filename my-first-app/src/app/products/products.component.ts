@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit {
   data1=[
     {
       "id": 2,
-      "name": "Rice",
+      "name": "wheet",
       "price": 100,
       "quantity": "2000KG",
       "location": "Ahmedabad",
@@ -42,14 +42,14 @@ export class ProductsComponent implements OnInit {
     },
     {
       "id": 2,
-      "name": "Wheat",
+      "name": "rice",
       "price": 200,
       "quantity": "2000KG",
       "location": "Rajkot",
       "presentstock": "100KG"
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "Pearl Millet ",
       "price": 100,
       "quantity": "2000KG",

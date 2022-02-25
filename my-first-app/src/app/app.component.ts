@@ -330,6 +330,7 @@ export class AppComponent
   imgurl2 = ".././assets/images/rice.jpg"
   imgurl3 = ".././assets/images/bajara.jpg"
   details:any=[];
+  counter=1;
   itemscart = [
     {
       "id": 1,
@@ -342,12 +343,7 @@ export class AppComponent
   ]
   addcart(details:any)
   {
+    this.counter++;
     this.itemscart.push(details);
   }
-  counter = 0;
-  increamentcounter(value: number)
-  {
-    this.counter++;
-  }
-
 }
