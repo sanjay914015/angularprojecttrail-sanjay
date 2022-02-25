@@ -145,12 +145,16 @@ ngClass, ngstyle and ng Model are built in directive
           <button class="btn btn-primary" onclick="disable()">Disable</button>
           <p [ngClass]="1 ? 'red' : 'yellow'">Helllo</p> 
 </div>
+
+<h3>Task 1<h3>
 <h4>ngstyle</h4>
 
 <div class="container">
     <button [ngStyle]="{background:'yellow'}">Click</button>
 </div>
 
+
+<h3>Task 2<h3>
  <div class="container">
 
      <table style="width: 100%">
@@ -183,53 +187,9 @@ ngClass, ngstyle and ng Model are built in directive
 
      </table>
  
- </div> 
- 
- <div class="container">
-     <table>
-         <tr>
-             <th>Prodect</th>
-             <th>Cart</th>
-         </tr>
-         <tr>
-             <td>
-                 <table>
-                     <tr>
-                         <td>
-                        <img [src] ="imgurl1">
-                        </td>
-                     </tr>
-                     <tr>
-                         <td>
-                        <app-product1></app-product1>
-                        </td>
-                     </tr>
-                 </table>
-             </td>
-             <td rowspan="3">
-                 {{counter}}
+ </div>  -->
 
-             </td>
-         </tr>
-         <tr>
-             <td>
-                <img [src] ="imgurl2">
-                <app-product2></app-product2>
-             </td>
-         </tr>
-         <tr>
-             <td>
-                <img [src] ="imgurl3">
-                <app-product3></app-product3>
-             </td>
-         </tr>
-
-     </table>
- </div>
-
- <app-product1 (newitemEvents1)="increamentcounter()"></app-product1>
- <app-product1 (newitemEvents2)="increamentcounter()"></app-product1>
- <app-product1 (newitemEvents3)="increamentcounter()"></app-product1> -->
+ <h3>Task 3</h3>
 <div *ngFor="let d of itemscart">
  <table class="styled-table">
     <thead>
