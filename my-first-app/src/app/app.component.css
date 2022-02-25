@@ -1,0 +1,40 @@
+/* .red
+{
+    color: red;
+}
+.yellow
+{
+    color: yellow;
+}
+th, td, p, input, h3 {
+    font:15px 'Segoe UI';
+}
+table, th, td {
+    border: solid 1px #ddd;
+    border-collapse: collapse;
+    padding: 2px 3px;
+    text-align: center;
+}
+th {
+    font-weight:bold;
+}
+.col-container {
+    display: table; 
+    width: 100%; 
+  }
+  
+  .col {
+    display: table-cell;
+  } */
+table {
+    width: 100%;
+  }
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+  

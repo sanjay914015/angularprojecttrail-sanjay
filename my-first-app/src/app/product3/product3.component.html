@@ -1,0 +1,15 @@
+<!-- <p #desc2>
+    Denim is a sturdy cotton warp-faced textile in which the weft passes under two or more warp threads. This twill weaving produces a diagonal ribbing that distinguishes it from cotton duck. While a denim predecessor known as dungaree has been produced in India for hundreds of years, denim as it is recognized today was first produced in Nîmes, France.
+</p>
+<p><button (click)="addNewItem()">Add to Cart</button></p> -->
+<div *ngFor="let d of data3"; let i = index >
+    <p>{{d.id}}
+    {{d.name}}
+    {{d.price}}
+    {{d.quantity}}
+    {{d.location}}
+    {{d.presentstock}}</p>
+    </div>
+<div class="container">
+    <button onclick="cart()">Add to cart</button>
+</div>

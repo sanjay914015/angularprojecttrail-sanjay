@@ -1,4 +1,4 @@
-<!-- <!-- <p> Hello</p>
+<!-- <!-- <!-- <!-- <!-- <!-- <!-- <!-- <!-- <p> Hello</p>
 <img [src]="imgurl">
 
 <h3>Task 1</h3>
@@ -8,39 +8,255 @@
       <input name= "firstname" value="This is My new file  {{countclick}}">
 </div>
 
+
 <h3> Task 2 : Put Entered Data in Table </h3>
 <label>First name</label>
-<input name="firstname">
+<input name="firstname" [(ngModel)] = "fname">
 <br><br>
 <label>Last name</label>
-<input name="lastname">
+<input name="lastname" [(ngModel)] = "lname">
 <br><br>
 <label>Contact</label>
-<input name="contact">
+<input name="contact" [(ngModel)] = "contact">
 <br><br>
-<var class="btn btn-primary" (click)="FillTable()">Submit</var>
 
+<button class="btn btn-primary" (click)="FillTable()">Submit</button>
 <table>
   <thead>
-      <th>Name</th>
-      <th>Index</th>
+      <th style="padding-left:1em;">firstname</th>
+      <th style="padding-left:1em;">Lastname</th>
+      <th style="padding-left:1em;">Contact</th>
+
   </thead>
   <tbody>
       <tr>
-          <td>{{name}}</td>
-          <td>{{name}}</td>
-          <td>{{name}}</td>
+          <td style="padding-left:1em;">{{fname}}</td>
+          <td style="padding-left:1em;">{{lname}}</td>
+          <td style="padding-left:1em;">{{contact}}</td>
       </tr>
     
   </tbody>
 </table> 
 
 
-<p> Task 3 </p>-->
-
-
-
-
+<p> Task 3 </p>
 <app-header></app-header>
 <app-middle></app-middle>
-<app-footer></app-footer>
+<app-footer></app-footer> 
+
+
+ngFor ngIf ngSwitch these are called as inbuilt structure is directive.
+ngClass, ngstyle and ng Model are built in directive
+
+<p> Day 2</p>
+<h2>directive </h2>
+<div class="container">
+    <input name="firstname" [(ngModel)] = "fname">
+    <p>{{fname}}</p>
+</div>
+<br><br>
+
+<h2>ngif use</h2>
+<div *ngIf="able">
+    <p>True</p>
+</div>
+
+
+<div class="container">
+<input name="getnewelement" [(ngModel)] = "getnumber"/>
+<p>The Number Enter is : {{getnumber}}</p>
+<div *ngIf="checkeven()">
+    <p>Even is Even</p>
+</div>
+</div>
+
+<br><br>
+
+<h3>*ngFor</h3>
+
+<div class="container">
+    <div *ngFor="let numarray of numarrays">
+        {{numarray}}
+    </div>
+
+    </div>
+
+<br><br>
+<h4>Task1: Print array which has more than five character</h4>
+
+<div class="container">
+    <div *ngFor="let strarray of strarrays">
+        <div *ngIf="strarray.length > 5">
+            <p>{{strarray}}</p>
+        </div>
+    </div>
+
+</div>
+<br><br>
+<h4>Task 2: Print Number which is on odd location</h4>
+
+<div class="container">
+    <div *ngFor="let numbers of numberarrays">
+        <div *ngIf="checklocation()">
+            <p>{{numbers}}</p>
+        </div>
+    </div>
+
+</div>
+    
+<h3>@input: Use @Input in child component</h3>
+<app-child [itemrecieved]="itemsent"></app-child>
+<br><br>
+
+
+<h4>Task 3: Declare array in parent and print in child</h4>
+<app-child [itemrecieved2]="itemarray"></app-child>
+
+<h4><p>Output and Event
+    @output : is a property through the data travel to the parents, its a decorated function which carries data from child to Parents
+    TO rais an event @output functionality must have type of Eventameter
+    #newitem we can store temporary  variable with this variable
+</p>
+</h4>
+<h4>Task 4: Count the number of added Cart</h4>
+<i class="fa fa-shopping-cart" style="font-size:48px;color:red;">
+    <p> {{addcounter}}</p></i>
+
+<app-child (newitemEvents)="increamentcounter()"></app-child>
+
+ <i class="fa fa-shopping-cart" style="font-size:48px;color:red;">
+    <p> {{counter2}}</p></i>
+
+<app-products (newitemEvents)="increamentcounter2()"></app-products>
+
+ <app-products></app-products>
+  <h4>ngClass</h4>
+
+  <div class="container">
+      <p [ngClass]="item > 10 ? 'red' : 'yellow'">{{item}}</p> 
+
+
+      <div *ngFor="let element of newArray">
+        <p [ngClass]="element % 2 == 0 ? 'red' : 'yellow'">{{element}}</p> 
+
+      </div>
+
+          <button class="btn btn-primary" onclick="unable()">Unable</button>
+          <button class="btn btn-primary" onclick="disable()">Disable</button>
+          <p [ngClass]="1 ? 'red' : 'yellow'">Helllo</p> 
+</div>
+<h4>ngstyle</h4>
+
+<div class="container">
+    <button [ngStyle]="{background:'yellow'}">Click</button>
+</div>
+
+ <div class="container">
+
+     <table style="width: 100%">
+        <div *ngFor="let d of data"; let i = index >
+         <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Emial</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">website</th>
+            <th scope="col">Company</th>
+            <th scope="col">Hide</th>
+         </tr>
+         
+
+         <tr >
+             <td>{{d.id}}</td>
+             <td>{{d.name}}</td>
+             <td>{{d.username}}</td>
+             <td>{{d.email}}</td>
+             <td>{{d.address}}</td>
+             <td>{{d.phone}}</td>
+             <td>{{d.website}}</td>
+             <td>{{d.company}}</td>
+             <td><button onclick="delete(i)">Hide</button></td>
+         </tr>
+         </div>
+
+     </table>
+ 
+ </div> 
+ 
+ <div class="container">
+     <table>
+         <tr>
+             <th>Prodect</th>
+             <th>Cart</th>
+         </tr>
+         <tr>
+             <td>
+                 <table>
+                     <tr>
+                         <td>
+                        <img [src] ="imgurl1">
+                        </td>
+                     </tr>
+                     <tr>
+                         <td>
+                        <app-product1></app-product1>
+                        </td>
+                     </tr>
+                 </table>
+             </td>
+             <td rowspan="3">
+                 {{counter}}
+
+             </td>
+         </tr>
+         <tr>
+             <td>
+                <img [src] ="imgurl2">
+                <app-product2></app-product2>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                <img [src] ="imgurl3">
+                <app-product3></app-product3>
+             </td>
+         </tr>
+
+     </table>
+ </div>
+
+ <app-product1 (newitemEvents1)="increamentcounter()"></app-product1>
+ <app-product1 (newitemEvents2)="increamentcounter()"></app-product1>
+ <app-product1 (newitemEvents3)="increamentcounter()"></app-product1> -->
+<div *ngFor="let d of itemscart">
+ <table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>quantity</th>
+            <th>location</th>
+            <th>presentstock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{d.id}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.price}}</td>
+            <td>{{d.quantity}}</td>
+            <td>{{d.location}}</td>
+            <td>{{d.presentstock}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<app-products (newitemEvents)="addcart($event)"></app-products>
+
+
+
+  
+  
