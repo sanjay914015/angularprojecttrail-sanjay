@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import { DatetimeserviceService } from './datetimeservice.service'
+import { GetjasondataService } from './getjasondata.service'
+export interface IItem {
+  firstname: string;
+  lastname: string;
+  contact: number;
+}
 
 @Component({
   selector: 'app-root',
@@ -7,7 +14,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent 
 {
-  title = 'my-first-app';
   // imgurl = ".././assets/images/pic1.jpg";
   // name = "sanjay";
   // countclick=0;
@@ -325,25 +331,89 @@ export class AppComponent
   // delete(i:any){
   //   this.data.splice(i,1);
   // }
+  // Friday 25/02 Tasks
 
-  imgurl1 = ".././assets/images/wheat.jpg"
-  imgurl2 = ".././assets/images/rice.jpg"
-  imgurl3 = ".././assets/images/bajara.jpg"
-  details:any=[];
-  counter=1;
-  itemscart = [
-    {
-      "id": 1,
-      "name": "Pearl Millet ",
-      "price": 100,
-      "quantity": "2000KG",
-      "location": "Surat",
-      "presentstock": "100KG"
-    }
-  ]
-  addcart(details:any)
-  {
-    this.counter++;
-    this.itemscart.push(details);
-  }
+  // imgurl1 = ".././assets/images/wheat.jpg"
+  // imgurl2 = ".././assets/images/rice.jpg"
+  // imgurl3 = ".././assets/images/bajara.jpg"
+  // details:any=[];
+  // counter=1;
+  // itemscart = [
+  //   {
+  //     "id": 1,
+  //     "name": "Pearl Millet ",
+  //     "price": 100,
+  //     "quantity": "2000KG",
+  //     "location": "Surat",
+  //     "presentstock": "100KG"
+  //   }
+  // ]
+  // addcart(details:any)
+  // {
+  //   this.counter++;
+  //   this.itemscart.push(details);
+  // }
+
+
+//Date: 28/02 Use of services
+
+getdate:any;
+
+//Date: 28/02 Task1
+//Date: 28/02 Task 2 tranfer services from parents to child (used by datetimeservice service)
+
+
+jasonfiledata:any;
+counter:any;
+title = 'my-first-app';
+constructor(private dt:DatetimeserviceService, private jasondata:GetjasondataService)
+{
+  this.getdate = dt.today();
+  this.jasonfiledata = jasondata.getdata();
+  this.counter = dt.counterofservice();
+  this.dt.mylist;
+}
+updatecounter()
+{
+  this.counter++;
+}
+
+// Put parents data in child using services
+
+firstname = ""
+lastname =""
+additemtots()
+{
+  this.dt.setdata(this.firstname,this.lastname);
+}
+
+
+
+// ngform concept i used datetimeservice service for passdata to another componenet
+
+user:any =[{"email":'',"password":'',"address":''}];
+onsubmitofform(user:any)
+{
+  console.log(typeof(user));
+  this.dt.userdata.push(user);
+}
+
+tableofnumber: number[] = []; 
+number = 0;
+numberformain=0;
+printtable()
+{
+  this.number = this.numberformain;
+  this.tableofnumber.push(this.number);
+  this.tableofnumber.push(this.number*2);
+  this.tableofnumber.push(this.number*3);
+  this.tableofnumber.push(this.number*4);
+  this.tableofnumber.push(this.number*5);
+  this.tableofnumber.push(this.number*6);
+  this.tableofnumber.push(this.number*7);
+  this.tableofnumber.push(this.number*8);
+  this.tableofnumber.push(this.number*9);
+  this.tableofnumber.push(this.number*10);
+}
+
 }

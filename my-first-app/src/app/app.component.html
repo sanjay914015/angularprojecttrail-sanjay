@@ -188,7 +188,7 @@ ngClass, ngstyle and ng Model are built in directive
      </table>
  
  </div>  -->
-
+<!-- 
  <h3>Task 3</h3>
  <h3>{{counter}}</h3>
 <div *ngFor="let d of itemscart">
@@ -215,9 +215,106 @@ ngClass, ngstyle and ng Model are built in directive
     </tbody>
 </table>
 </div>
-<app-products (newitemEvents)="addcart($event)"></app-products>
+<app-products (newitemEvents)="addcart($event)"></app-products> -->
 
 
+<h3> Date 28.02 Task 1 using services put jason data in table</h3>
+
+<p>{{getdate}}</p>
+<div class="container">
+    <table class="containertab">
+        <tr>
+           <th scope="col">ID</th>
+           <th scope="col">Name</th>
+           <th scope="col">Username</th>
+           <th scope="col">Emial</th>
+           <th scope="col">Address</th>
+           <th scope="col">Phone</th>
+           <th scope="col">website</th>
+           <th scope="col">Company</th>
+        </tr>
+        
+
+        <tr *ngFor="let d of jasonfiledata">
+            <td >{{d.id}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.username}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.address}}</td>
+            <td>{{d.phone}}</td>
+            <td>{{d.website}}</td>
+            <td>{{d.company}}</td>
+        </tr>
+    </table>
+
+</div> 
+
+<br><br>
 
   
-  
+<h3> Date 28.02 Task 2: counter pressed button in another component using services</h3>
+Child is child component for parent -->
+<button class="btn btn-primary" (click)="updatecounter()"></button>
+
+{{counter}}
+
+<br><br>
+<h3> Date 28.02 Task 3: using services put one component data in another component</h3>
+parents to services and services to child
+<div class="container">
+    <label>First name</label>
+<input name="firstname" [(ngModel)] = "firstname">
+<br><br>
+<label>Last name</label>
+<input name="lastname" [(ngModel)] = "lastname">
+<br><br>
+
+<button class="btn btn-primary" (click)="additemtots()">Submit</button>
+</div>
+
+<app-child></app-child>
+
+<br><br><br><br>
+<h3>task 4 : Pass main file data to service and then pass it to child</h3>
+
+<h4>Ng-Form </h4>
+
+<div class="container">
+    <form #myForm="ngForm" (ngSubmit)="onsubmitofform(myForm.value)">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email" [ngModel]="user.email" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password" [ngModel]="user.password" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"name="address" [ngModel]="user.address" required>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Sign in</button>
+      </form>
+</div>
+
+<app-child></app-child>
+
+
+
+
+<!-- Task 5: Print Table of any  number -->
+
+<!-- 
+<div class="container">
+    <label>First name</label>
+<input name="number" [(ngModel)] = "number">
+<br><br>
+<button class="btn btn-primary" (click)="additemtots()">Submit</button>
+</div>
+
+  <div *ngFor="let i in tableofnumber, let j =index">
+    <p>{{number}} * j = i</p>
+  </div> -->
+

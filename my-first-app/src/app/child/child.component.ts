@@ -1,5 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-
+import { DatetimeserviceService } from '../datetimeservice.service';
+export interface IItem {
+  firstname: string;
+  lastname: string;
+  contact: number;
+}
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
@@ -7,8 +12,9 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  constructor() { }
-
+  servicecounter = 0;
+  constructor(public dt:DatetimeserviceService) {
+     }
   ngOnInit(): void {
   }
 
@@ -26,6 +32,13 @@ export class ChildComponent implements OnInit {
     this.counter++
     this.newitemEvents.emit(this.counter);
   }
+
+  @Input() todaydate:any;
+
+
+
+// 28/02 Task 4 print parents data in tabular form using services
+
 
 
 }

@@ -35,7 +35,7 @@ export class ProductsComponent implements OnInit {
     {
       "id": 2,
       "name": "wheet",
-      "price": 100,
+      "price": 400,
       "quantity": "2000KG",
       "location": "Ahmedabad",
       "presentstock": "100KG"
@@ -51,7 +51,7 @@ export class ProductsComponent implements OnInit {
     {
       "id": 3,
       "name": "Pearl Millet ",
-      "price": 100,
+      "price": 200,
       "quantity": "2000KG",
       "location": "Surat",
       "presentstock": "100KG"

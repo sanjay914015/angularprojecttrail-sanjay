@@ -40,3 +40,29 @@
 </div>
 
  -->
+
+ <p>{{dt.getdata()}}</p>
+ <!-- {{todaydate}} -->
+
+ <div class="container">
+    <table >
+       <div>
+        <tr style="border: 1px solid">
+           <th scope="col" style="border: 1px solid">email</th>
+           <th scope="col" style="border: 1px solid">password</th>
+           <th scope="col" style="border: 1px solid">address</th>
+
+        </tr>
+        <tr *ngFor="let user of dt.userdata">
+            <td style="border: 1px solid">{{user.email}}</td>
+            <td style="border: 1px solid">{{user.password}}</td>
+            <td style="border: 1px solid">{{user.address}}</td>
+        </tr>
+        </div>
+
+    </table>
+
+</div> 
+
+
+

@@ -13,6 +13,8 @@ import { ProductsComponent } from './products/products.component';
 import { Product1Component } from './product1/product1.component';
 import { Product2Component } from './product2/product2.component';
 import { Product3Component } from './product3/product3.component';
+import { DatetimeserviceService } from './datetimeservice.service';
+import { GetjasondataService } from './getjasondata.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { Product3Component } from './product3/product3.component';
     FormsModule
     
   ],
-  providers: [],
+  providers: [DatetimeserviceService, GetjasondataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
