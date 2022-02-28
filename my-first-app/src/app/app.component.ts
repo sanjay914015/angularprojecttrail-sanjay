@@ -1,3 +1,4 @@
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component } from '@angular/core';
 import { DatetimeserviceService } from './datetimeservice.service'
 import { GetjasondataService } from './getjasondata.service'
@@ -398,22 +399,34 @@ onsubmitofform(user:any)
   this.dt.userdata.push(user);
 }
 
-tableofnumber: number[] = []; 
-number = 0;
-numberformain=0;
-printtable()
+//Task 5
+prtnumber = 0;
+numarray = [1,2,3,4,5,6,7,8,9,10];
+printtable(prtnumber:number)
 {
-  this.number = this.numberformain;
-  this.tableofnumber.push(this.number);
-  this.tableofnumber.push(this.number*2);
-  this.tableofnumber.push(this.number*3);
-  this.tableofnumber.push(this.number*4);
-  this.tableofnumber.push(this.number*5);
-  this.tableofnumber.push(this.number*6);
-  this.tableofnumber.push(this.number*7);
-  this.tableofnumber.push(this.number*8);
-  this.tableofnumber.push(this.number*9);
-  this.tableofnumber.push(this.number*10);
+  this.numarray = [1,2,3,4,5,6,7,8,9,10];
+  for(let i=0; i<10;i++)
+  {
+    this.numarray[i] = this.numarray[i]*prtnumber;
+  }
 }
 
+// Task 6
+
+Time = 0;
+days:any;
+price = 0;
+newprice = 0;
+date1:any="";
+date2:any="";
+dt1:any="";
+dt2:any="";
+countduration(date1:any,date2:any)
+{
+  this.dt1 = new Date(date1);
+  this.dt2 = new Date(date2);
+  this.Time = this.dt2.getTime() - this.dt1.getTime(); 
+  this.days = Math.abs(Math.ceil(this.Time / (1000 * 60 * 60 * 24)));
+  console.log(this.days*10);
+}
 }

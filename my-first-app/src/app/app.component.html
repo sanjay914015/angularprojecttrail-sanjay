@@ -302,19 +302,36 @@ parents to services and services to child
 <app-child></app-child>
 
 
-
+<br><br>
 
 <!-- Task 5: Print Table of any  number -->
-
-<!-- 
+<h3>Print Multiplication table</h3>
+ 
 <div class="container">
-    <label>First name</label>
-<input name="number" [(ngModel)] = "number">
+    <label>Enter Number</label>
+<input name="ptrnumber" [(ngModel)] = "prtnumber">
 <br><br>
-<button class="btn btn-primary" (click)="additemtots()">Submit</button>
+<button class="btn btn-primary" (click)="printtable(prtnumber)">Submit</button>
+<div *ngFor="let num of numarray; index as i">
+    <p> {{prtnumber}} * {{i+1}} = {{num}}</p>
+</div>
 </div>
 
-  <div *ngFor="let i in tableofnumber, let j =index">
-    <p>{{number}} * j = i</p>
-  </div> -->
+<!-- Task 6: ask user to enter from to too booking -->
+
+
+
+<h3> Task 6: Booking</h3>
+<label>Date 1</label>
+<input type="date" name="date1" [(ngModel)] = "date1">
+<br><br>
+<label>Date 2</label>
+<input type="date" name="date2" [(ngModel)] = "date2">
+<br><br>
+<br><br>
+<button class="btn btn-primary" (click)="countduration(date1,date2)">Submit</button>
+
+<br><br>
+{{date1}}<br>
+{{date2}}<br>
 
