@@ -1,0 +1,39 @@
+<div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <h2>Address</h2>
+
+    <label>Name: </label>
+    <input type="text" formControlName="name"><br>
+
+    <label>Mobile No: </label>
+    <input type="number" formControlName="mobilenumber"><br>
+    <div *ngIf="m.mobilenumber.touched && m.mobilenumber.invalid" class="alert alert-danger">
+        <div *ngIf="m.mobilenumber.errors?.required">Please enter mobile number</div>
+        <div *ngIf="m.mobilenumber.errors?.pattern">Mobile number is not 10 digit</div>
+    </div>
+
+    <label>Street: </label>
+    <input type="text" formControlName="street"><br>
+  
+    <label>City: </label>
+    <input type="text" formControlName="city"><br>
+  
+    <label>State: </label>
+    <input type="text" formControlName="state"><br>
+  
+    <label>Zip Code: </label>
+    <input type="number" formControlName="zip"><br>
+    <div *ngIf="m.zip.touched && m.zip.invalid" class="alert alert-danger">
+        <div *ngIf="m.zip.errors?.required">Please enter Zip number</div>
+    </div>
+
+    <label>Start Date: </label>
+    <input type="date" formControlName="startdate"><br>
+
+
+    <label>End Date: </label>
+    <input type="date" formControlName="enddate"><br>
+
+    <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+</div>

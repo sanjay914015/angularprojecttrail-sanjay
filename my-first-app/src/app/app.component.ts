@@ -1,13 +1,6 @@
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component } from '@angular/core';
 import { DatetimeserviceService } from './datetimeservice.service'
 import { GetjasondataService } from './getjasondata.service'
-export interface IItem {
-  firstname: string;
-  lastname: string;
-  contact: number;
-}
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

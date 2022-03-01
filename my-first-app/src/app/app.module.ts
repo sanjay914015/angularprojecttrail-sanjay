@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,8 @@ import { Product2Component } from './product2/product2.component';
 import { Product3Component } from './product3/product3.component';
 import { DatetimeserviceService } from './datetimeservice.service';
 import { GetjasondataService } from './getjasondata.service';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ReactiveAddressFormComponent } from './reactive-address-form/reactive-address-form.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +31,15 @@ import { GetjasondataService } from './getjasondata.service';
     ProductsComponent,
     Product1Component,
     Product2Component,
-    Product3Component
+    Product3Component,
+    ReactiveFormComponent,
+    ReactiveAddressFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [DatetimeserviceService, GetjasondataService],
