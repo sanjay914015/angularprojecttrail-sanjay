@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-product2',
   templateUrl: './product2.component.html',
@@ -18,6 +19,7 @@ export class Product2Component implements OnInit {
   // {
   //   this.counter++
   //   this.newitemEvents.emit(this.counter);
+  videopath = "C:/Users/Lenovo/Downloads/video.mp4"
   // }
   data2 = [
     {
@@ -35,5 +37,6 @@ export class Product2Component implements OnInit {
   {
     this.newitemEvents2.emit(this.price);
   }
+  
 
 }

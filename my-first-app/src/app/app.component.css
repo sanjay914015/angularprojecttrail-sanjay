@@ -52,4 +52,11 @@ table, th, td {
     table-layout: fixed;
     }
 
+/* Date 02/01 Task: Put json data in fomr */
+input{
+    width: 100%;
+    padding: 5px 6px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
 

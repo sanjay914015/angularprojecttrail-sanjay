@@ -1,4 +1,4 @@
-<!-- <!-- <!-- <!-- <!-- <!-- <!-- <!-- <!-- <p> Hello</p>
+<!-- <!-- <!-- <!-- <!-- <!-- <!-- <!-- <!-- <!-- <p> Hello</p>
 <img [src]="imgurl">
 
 <h3>Task 1</h3>
@@ -342,6 +342,101 @@ parents to services and services to child
 
 <h4>Task 1: Form Validation</h4>
 <app-reactive-form></app-reactive-form> -->
+<!-- 
+<h4 style="text-align:center;">Task 2: AdressValidation For  Booking</h4>
+<app-reactive-address-form></app-reactive-address-form> -->
 
-<h4 style="text-align:center;">Task 2: AdressValidation</h4>
-<app-reactive-address-form></app-reactive-address-form>
+
+<!-- <h4>02/03</h4> -->
+<!-- <h4>Using Http client fetch json data from url</h4>
+<div class="container">
+    <table class="containertab">
+        <tr>
+           <th scope="col">ID</th>
+           <th scope="col">Name</th>
+           <th scope="col">Username</th>
+           <th scope="col">Emial</th>
+           <th scope="col">Address</th>
+           <th scope="col">Phone</th>
+           <th scope="col">website</th>
+           <th scope="col">Company</th>
+        </tr>
+        
+
+        <tr *ngFor="let d of htdata">
+            <td >{{d.id}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.username}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.address}}</td>
+            <td>{{d.phone}}</td>
+            <td>{{d.website}}</td>
+            <td>{{d.company}}</td>
+        </tr>
+    </table>
+
+</div> 
+
+<h4>Fetch jason data from selfmade json file</h4>
+<ul *ngFor="let d of htdata">
+    <li>
+        {{d.id}}
+        {{d.Name}}
+        {{d.Mobileno}}
+        {{d.Street}}
+        {{d.City}}
+        {{d.State}}
+        {{d.Zip}}
+    </li>
+</ul> 
+
+<h4> Fetch data from json and put in form</h4>
+<div class="container">
+    <label>ID: </label>
+    <input type="number" [(ngModel)] = "id"><br>
+
+    <label>Name: </label>
+    <input type="text" [(ngModel)] = "name" placeholder={{name}}><br>
+
+    <label>Mobile No: </label>
+    <input type="number" [(ngModel)] = "number" placeholder={{number}}><br>
+
+    <label>Street: </label>
+    <input type="text" [(ngModel)] = "street" placeholder={{street}}><br>
+  
+    <label>City: </label>
+    <input type="text" [(ngModel)] = "city" placeholder={{city}}><br>
+  
+    <label>State: </label>
+    <input type="text" [(ngModel)] = "state" placeholder={{state}}><br>
+    <label>Zip Code: </label>
+    <input type="number" [(ngModel)] = "zip" placeholder={{zip}}><br>
+    <button type="submit" class="btn btn-primary" (click)="showdatatoform(id)">Get</button>
+</div>
+
+
+
+<p>POSt GET</p>
+<div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <div>
+    <label>
+        name:
+        <input formControlName="name" placeholder="Enter Your name">
+    </label>
+    <label>
+        Email:
+        <input formControlName="email" placeholder="Enter email id">
+    </label>
+    <label>
+        Message:
+        <input formControlName="message" placeholder="Enter message">
+    </label>
+    </div>
+    <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+</div>
+
+ -->
+
+ <app-product2></app-product2>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { DatetimeserviceService } from './datetimeservice.service';
 import { GetjasondataService } from './getjasondata.service';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveAddressFormComponent } from './reactive-address-form/reactive-address-form.component';
+import { HttpDataRequestService } from './http-data-request.service';
 
 @NgModule({
   declarations: [
@@ -34,15 +36,16 @@ import { ReactiveAddressFormComponent } from './reactive-address-form/reactive-a
     Product3Component,
     ReactiveFormComponent,
     ReactiveAddressFormComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [DatetimeserviceService, GetjasondataService],
+  providers: [DatetimeserviceService, GetjasondataService, HttpDataRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

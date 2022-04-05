@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { DatetimeserviceService } from './datetimeservice.service'
 import { GetjasondataService } from './getjasondata.service'
+import { Observable, subscribeOn, Subscriber } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { HttpDataRequestService } from './http-data-request.service';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +12,7 @@ import { GetjasondataService } from './getjasondata.service'
 })
 export class AppComponent 
 {
+  
   // imgurl = ".././assets/images/pic1.jpg";
   // name = "sanjay";
   // countclick=0;
@@ -334,92 +339,128 @@ export class AppComponent
   // counter=1;
   // itemscart = [
   //   {
-  //     "id": 1,
-  //     "name": "Pearl Millet ",
-  //     "price": 100,
-  //     "quantity": "2000KG",
-  //     "location": "Surat",
-  //     "presentstock": "100KG"
-  //   }
-  // ]
-  // addcart(details:any)
-  // {
-  //   this.counter++;
-  //   this.itemscart.push(details);
-  // }
+//   //     "id": 1,
+//   //     "name": "Pearl Millet ",
+//   //     "price": 100,
+//   //     "quantity": "2000KG",
+//   //     "location": "Surat",
+//   //     "presentstock": "100KG"
+//   //   }
+//   // ]
+//   // addcart(details:any)
+//   // {
+//   //   this.counter++;
+//   //   this.itemscart.push(details);
+//   // }
 
 
-//Date: 28/02 Use of services
+// //Date: 28/02 Use of services
 
-getdate:any;
+// getdate:any;
 
-//Date: 28/02 Task1
-//Date: 28/02 Task 2 tranfer services from parents to child (used by datetimeservice service)
+// //Date: 28/02 Task1
+// //Date: 28/02 Task 2 tranfer services from parents to child (used by datetimeservice service)
 
 
-jasonfiledata:any;
-counter:any;
-title = 'my-first-app';
-constructor(private dt:DatetimeserviceService, private jasondata:GetjasondataService)
+// jasonfiledata:any;
+// counter:any;
+// title = 'my-first-app';
+// constructor(private dt:DatetimeserviceService, private jasondata:GetjasondataService)
+// {
+//   this.getdate = dt.today();
+//   this.jasonfiledata = jasondata.getdata();
+//   this.counter = dt.counterofservice();
+//   this.dt.mylist;
+// }
+// updatecounter()
+// {
+//   this.counter++;
+// }
+
+// // Put parents data in child using services
+
+// firstname = ""
+// lastname =""
+// additemtots()
+// {
+//   this.dt.setdata(this.firstname,this.lastname);
+// }
+
+
+
+// // ngform concept i used datetimeservice service for passdata to another componenet
+
+// user:any =[{"email":'',"password":'',"address":''}];
+// onsubmitofform(user:any)
+// {
+//   console.log(typeof(user));
+//   this.dt.userdata.push(user);
+// }
+
+// //Task 5
+// prtnumber = 0;
+// numarray = [1,2,3,4,5,6,7,8,9,10];
+// printtable(prtnumber:number)
+// {
+//   this.numarray = [1,2,3,4,5,6,7,8,9,10];
+//   for(let i=0; i<10;i++)
+//   {
+//     this.numarray[i] = this.numarray[i]*prtnumber;
+//   }
+// }
+
+// // Task 6
+
+// Time = 0;
+// days:any;
+// price = 0;
+// newprice = 0;
+// date1:any="";
+// date2:any="";
+// dt1:any="";
+// dt2:any="";
+// countduration(date1:any,date2:any)
+// {
+//   this.dt1 = new Date(date1);
+//   this.dt2 = new Date(date2);
+//   this.Time = this.dt2.getTime() - this.dt1.getTime(); 
+//   this.days = Math.abs(Math.ceil(this.Time / (1000 * 60 * 60 * 24)));
+//   console.log(this.days*10);
+// }
+//
+
+constructor(public ht:HttpDataRequestService){}
+ngOnInit()
 {
-  this.getdate = dt.today();
-  this.jasonfiledata = jasondata.getdata();
-  this.counter = dt.counterofservice();
-  this.dt.mylist;
+  this.ht.getdata().subscribe((data) => this.show(data));
 }
-updatecounter()
+myForm:any
+htdata:any;
+id=""
+name=""
+number=""
+street=""
+city=""
+state=""
+zip=""
+show(data:any)
 {
-  this.counter++;
+  this.htdata = data;
 }
 
-// Put parents data in child using services
-
-firstname = ""
-lastname =""
-additemtots()
+showdatatoform(id:any)
 {
-  this.dt.setdata(this.firstname,this.lastname);
+  console.log(id);
+  this.name = this.htdata[id-1].Name;
+  this.number = this.htdata[id-1].Mobileno;
+  this.street = this.htdata[id-1].Street;
+  this.city = this.htdata[id-1].City;
+  this.state = this.htdata[id-1].State;
+  this.zip = this.htdata[id-1].Zip;
+
+}
+
 }
 
 
 
-// ngform concept i used datetimeservice service for passdata to another componenet
-
-user:any =[{"email":'',"password":'',"address":''}];
-onsubmitofform(user:any)
-{
-  console.log(typeof(user));
-  this.dt.userdata.push(user);
-}
-
-//Task 5
-prtnumber = 0;
-numarray = [1,2,3,4,5,6,7,8,9,10];
-printtable(prtnumber:number)
-{
-  this.numarray = [1,2,3,4,5,6,7,8,9,10];
-  for(let i=0; i<10;i++)
-  {
-    this.numarray[i] = this.numarray[i]*prtnumber;
-  }
-}
-
-// Task 6
-
-Time = 0;
-days:any;
-price = 0;
-newprice = 0;
-date1:any="";
-date2:any="";
-dt1:any="";
-dt2:any="";
-countduration(date1:any,date2:any)
-{
-  this.dt1 = new Date(date1);
-  this.dt2 = new Date(date2);
-  this.Time = this.dt2.getTime() - this.dt1.getTime(); 
-  this.days = Math.abs(Math.ceil(this.Time / (1000 * 60 * 60 * 24)));
-  console.log(this.days*10);
-}
-}
